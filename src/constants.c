@@ -20,3 +20,5 @@ const CFStringRef CF_LOG_KEYS[] = {
     CF_PRIMARY_USAGE_PAGE_KEY,
     CF_PRIMARY_USAGE_ID_KEY,
 };
+
+const size_t CF_LOG_KEYS_LENGTH = sizeof(CF_LOG_KEYS) / sizeof(CFStringRef);

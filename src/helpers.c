@@ -55,9 +55,7 @@ void print_cf_dictionary(CFDictionaryRef cf_dictionary) {
 void print_iohid_device(IOHIDDeviceRef iohid_device) {
     HANDLE_NULL_OBJECT(iohid_device);
 
-    int number_of_keys = sizeof(CF_LOG_KEYS)/sizeof(CFStringRef);
-
-    for(int i=0; i < number_of_keys; i++) {
+    for(size_t i=0; i < CF_LOG_KEYS_LENGTH; i++) {
         CFStringRef property_key = CF_LOG_KEYS[i];
         char *property_key_string = create_c_string(property_key);
         printf("\t%s: ", property_key_string);
