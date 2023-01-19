@@ -1,21 +1,22 @@
 #include <IOKit/hid/IOHidManager.h>
 #include "helpers.h"
 
+#define UNUSED __attribute__((unused))
 
-void device_add(void *context, IOReturn result, void *sender, IOHIDDeviceRef device) {
+void device_add(UNUSED void *context, UNUSED IOReturn result, UNUSED void *sender, IOHIDDeviceRef device) {
     printf("device add!\n");
     print_iohid_device(device);
 }
 
-void device_removed(void *context, IOReturn result, void *sender, IOHIDDeviceRef device) {
+void device_removed(UNUSED void *context, UNUSED IOReturn result, UNUSED void *sender, IOHIDDeviceRef device) {
     printf("device removed!\n");
     print_iohid_device(device);
 }
 
-int main(int argc, char *argv[]) {
+int main(UNUSED int argc, UNUSED char *argv[]) {
     CFDictionaryRef logitech_mouse_match = create_hid_filter_dictionary(
         0x046d, true, // Logitech: 0x413c or 0x046d
-        0x301a, true, // G502 Mouse
+        0xc332, true, // G502 Mouse
         0x00, false,
         0x00, false
     );
